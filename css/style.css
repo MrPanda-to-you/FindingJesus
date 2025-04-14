@@ -199,8 +199,8 @@ button:active {
   border-radius: 16px;
   text-align: center;
   border: 3px solid #A1887F;
-  max-width: 90%;
-  width: 600px;
+  max-width: 600px;
+  width: 90%;
   max-height: 90vh;
   overflow-y: auto;
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
