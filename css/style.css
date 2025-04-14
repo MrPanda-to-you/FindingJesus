@@ -1,0 +1,284 @@
+/* CSS for Finding Jesus in the Temple Game */
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: #FBF5E8;
+  color: #5D4037;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: 'Comfortaa', cursive;
+  color: #8D6E63;
+  text-align: center;
+}
+
+h1 {
+  color: #795548;
+}
+
+#game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid #A1887F;
+  background-color: #FFFDF6;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(141, 110, 99, 0.2);
+  max-width: 900px;
+  width: 95%;
+  border-radius: 18px;
+}
+
+#game-screen {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16 / 10;
+  background-color: #E0E0E0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 2px solid #BCAAA4;
+  overflow: hidden;
+  margin-bottom: 25px;
+  cursor: crosshair;
+  border-radius: 12px;
+}
+
+.hidden-object {
+  position: absolute;
+  background-color: rgba(255, 0, 0, 0.0);
+  border: 3px dashed rgba(216, 108, 108, 0.6);
+  cursor: pointer;
+  transition: background-color 0.3s ease, border 0.3s ease, transform 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  font-family: 'Nunito', sans-serif;
+  color: transparent;
+  text-align: center;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.hidden-object:hover {
+  background-color: rgba(255, 214, 102, 0.4);
+  border: 3px solid #FFD54F;
+  color: #5D4037;
+  transform: scale(1.03);
+}
+
+.hidden-object.found {
+  background-color: rgba(165, 214, 167, 0.4);
+  border: 3px solid #81C784;
+  cursor: default;
+  color: #5D4037;
+  pointer-events: none;
+  transform: scale(1);
+}
+
+#ui-area {
+  background-color: #FFF8F0;
+  padding: 20px 30px;
+  border: none;
+  width: 100%;
+  max-width: 800px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: inset 0 0 8px rgba(141, 110, 99, 0.1);
+}
+
+#stage-dialogue {
+  font-style: italic;
+  margin-bottom: 15px;
+  color: #A1887F;
+}
+
+#object-list {
+  list-style: none;
+  padding: 10px;
+  margin: 10px 0 15px 0;
+  max-height: 120px;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+  text-align: left;
+}
+
+#object-list li {
+  padding: 6px 10px;
+  transition: color 0.3s ease, text-decoration 0.3s ease, background-color 0.3s ease;
+  background-color: #FFFFFF;
+  border-radius: 6px;
+  color: #5D4037;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+#object-list li.found {
+  text-decoration: line-through;
+  color: #B0BEC5;
+  background-color: #F5F5F5;
+}
+
+button {
+  padding: 12px 25px;
+  margin-top: 15px;
+  font-family: 'Comfortaa', cursive;
+  font-size: 1.05em;
+  font-weight: 700;
+  cursor: pointer;
+  background-color: #FFB74D;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 25px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+button:hover {
+  background-color: #FFA726;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+button:active {
+  transform: translateY(0px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#mini-lesson-button {
+  padding: 8px 18px;
+  font-size: 0.9em;
+  background-color: #AED581;
+  margin-left: 10px;
+  border-radius: 20px;
+  color: #5D4037;
+  font-weight: 600;
+  text-transform: none;
+}
+
+#mini-lesson-button:hover {
+  background-color: #9CCC65;
+  color: #3E2723;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(62, 39, 35, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 15px;
+  box-sizing: border-box;
+  backdrop-filter: blur(3px);
+}
+
+.overlay.active {
+  display: flex;
+}
+
+.overlay-content {
+  background-color: #FFFDF6;
+  padding: 30px 40px;
+  border-radius: 16px;
+  text-align: center;
+  border: 3px solid #A1887F;
+  max-width: 90%;
+  width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.overlay-content p {
+  line-height: 1.7;
+  color: #5D4037;
+}
+
+#prayer-section {
+  margin: 25px 0;
+  padding: 20px;
+  border: 1px solid #E0E0E0;
+  background-color: #FBF5E8;
+  text-align: left;
+  border-radius: 12px;
+}
+
+#prayer-section summary {
+  cursor: pointer;
+  font-family: 'Comfortaa', cursive;
+  font-weight: 700;
+  color: #8D6E63;
+  padding: 8px 12px;
+  background-color: #EDE7F6;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+  display: inline-block;
+}
+
+#prayer-section summary:hover {
+  background-color: #D1C4E9;
+}
+
+/* Make the conclusion-card responsive */
+#conclusion-card {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto; /* optional margin for spacing */
+}
+
+@media (max-width: 768px) {
+  #game-screen {
+    height: auto;
+  }
+  .overlay-content {
+    padding: 25px 30px;
+    width: 90%;
+  }
+  h1 {
+    font-size: 1.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  #game-container {
+    padding: 15px;
+  }
+  #game-screen {
+    height: auto;
+  }
+  #ui-area {
+    padding: 15px 20px;
+  }
+  button {
+    padding: 10px 18px;
+    font-size: 0.9em;
+  }
+  .overlay-content {
+    padding: 20px;
+    border-radius: 12px;
+  }
+  h1 {
+    font-size: 1.5em;
+  }
+}

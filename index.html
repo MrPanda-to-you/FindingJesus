@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Finding Jesus in the Temple</title>
+  
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  
+  <!-- Google Fonts (optional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Nunito:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <h1>Finding Jesus in the Temple</h1>
+
+  <!-- Language and Stage Selector Row -->
+  <div class="selector-row">
+    <label for="language-selector">🌐 Language / Idioma:</label>
+    <select id="language-selector">
+      <option value="en">English</option>
+      <option value="es">Español</option>
+    </select>
+
+    <label for="stage-selector" id="stage-selector-label">Select Stage:</label>
+    <select id="stage-selector"></select>
+  </div>
+
+  <div id="game-container">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="overlay">
+      <div class="overlay-content">
+        <h2 id="loading-stage-title">Loading Stage...</h2>
+        <p id="loading-quote">Biblical quote appears here.</p>
+        <button id="start-stage-button">Start Stage</button>
+        <button id="mini-lesson-button" style="display: none;">Read Mini-Lesson</button>
+      </div>
+    </div>
+
+    <!-- Main Game Screen -->
+    <div id="game-screen"></div>
+
+    <!-- UI Area -->
+    <div id="ui-area">
+      <h2 id="stage-title">Stage Title</h2>
+      <p id="objective">Objective:</p>
+      <p id="stage-dialogue">Dialogue hint appears here.</p>
+      <h3 id="objects-title">Objects to Find:</h3>
+      <ul id="object-list"></ul>
+    </div>
+
+    <!-- Dialogue Box (overlay) -->
+    <div id="dialogue-box" class="overlay">
+      <div class="overlay-content">
+        <p id="dialogue-text"></p>
+        <button id="continue-button">Continue</button>
+      </div>
+    </div>
+
+    <!-- Mini Lesson Box (overlay) -->
+    <div id="mini-lesson-box" class="overlay">
+      <div class="overlay-content">
+        <h3 id="mini-lesson-title">Mini Lesson</h3>
+        <p id="mini-lesson-text"></p>
+        <button id="close-lesson-button">Close</button>
+      </div>
+    </div>
+
+    <!-- Conclusion Screen (overlay) -->
+    <div id="conclusion-screen" class="overlay">
+      <div class="overlay-content">
+        <h2 id="conclusion-title">Jesus Found!</h2>
+        <p id="conclusion-subtitle">Jesus returns obediently with His parents to Nazareth.</p>
+        <img id="conclusion-card" src="images/prayer-card.png" alt="Virtual Prayer Card" />
+        <div id="prayer-section">
+          <h3 id="reflect-title">Reflect on the Fifth Joyful Mystery</h3>
+          <p id="prayer-hint">Pray one Our Father, ten Hail Marys, and one Glory Be.</p>
+          <details>
+            <summary id="show-prayers">Show Prayers</summary>
+            <p><strong>Our Father:</strong> Our Father, Who art in heaven...</p>
+            <p><strong>Hail Mary (x10):</strong> Hail Mary, full of grace...</p>
+            <p><strong>Glory Be:</strong> Glory be to the Father...</p>
+          </details>
+        </div>
+        <p><em id="remember-text">Remember the importance of following God's will in your life.</em></p>
+        <button id="play-again-button">Play Again</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Link to external JavaScript file -->
+  <script src="js/game.js"></script>
+</body>
+</html>
