@@ -99,8 +99,6 @@ Upload these static files to any service that serves HTML/CSS/JS (e.g., GitHub P
 
 7. LICENSE
 This project is available under the MIT License, allowing free modification and distribution.
-(Or you may specify an alternative license if desired.)
-
 
 8. CONTRIBUTING
 We welcome pull requests and suggestions. To contribute:
